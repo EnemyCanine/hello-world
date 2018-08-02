@@ -32,13 +32,7 @@ pipeline {
             steps {
                 echo "Performing Prod Deployment!"
             }
-            when {
-                // Only say hello if a "greeting" is requested
-                expression { params.PROD_DEPLOY == 'No' }
-            }
-            steps {
-                echo "Starting Dev Deployment"
-            }
+            
         }
   }
 }
