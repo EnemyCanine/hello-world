@@ -1,8 +1,10 @@
-node {
-	stage 'Checkout'
-		
-	stage 'Build'
-		
-	stage 'Archive'
-		
+pipeline {
+  agent
+  stages {
+    stage ('Initialize') {
+      steps {
+        echo 'Placeholder.'
+      }
+    }
+  }
 }
