@@ -1,13 +1,6 @@
 pipeline {
   agent any
-  parameters {
-        choice(
-            // choices are a string of newline separated values
-            // https://issues.jenkins-ci.org/browse/JENKINS-41180
-            choices: 'Yes\No',
-            description: 'Prod Deployment',
-            name: 'PROD_DEPLOY')
-    }
+  
   stages {
     stage ('Initialize') {
       steps {
@@ -22,6 +15,16 @@ pipeline {
       }
     }
     stage ('Branch') {
+      
+      input {
+                message "Should we continue?"
+                ok "Yes, we should."
+                submitter "alice,bob"
+                parameters {
+                    string(name: 'PROD_DEPLOY', defaultValue: 'No', description: 'Perform Prod Deployment?')
+                }
+            }
+      
             when {
                 // Only say hello if a "greeting" is requested
                 expression { params.PROD_DEPLOY == 'Yes' }
