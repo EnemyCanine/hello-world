@@ -19,7 +19,7 @@ pipeline {
       input {
                 message "Should we continue?"
                 ok "Yes, we should."
-                submitter "alice,bob"
+                //submitter "alice,bob"
                 parameters {
                     string(name: 'PROD_DEPLOY', defaultValue: 'No', description: 'Perform Prod Deployment?')
                 }
