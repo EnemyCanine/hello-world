@@ -3,9 +3,7 @@ pipeline {
   stages {
     stage ('Initialize') {
       steps {
-        git pull origin test-branch
-        git push
-        echo 'Placeholder.'
+        echo 'Welcome to the Pipeline.'
       }
     }
   }
