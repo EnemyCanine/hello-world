@@ -27,7 +27,7 @@ pipeline {
       
             when {
                 // Only say hello if a "greeting" is requested
-                expression { params.PROD_DEPLOY == 'Yes' }
+                expression { PROD_DEPLOY == 'Yes' }
             }
             steps {
                 echo "Performing Prod Deployment!"
